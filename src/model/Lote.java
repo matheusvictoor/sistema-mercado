@@ -1,13 +1,21 @@
+package model;
+
 import java.sql.Date;
 
 public class Lote {
 	
+	private int id;
 	private Produto produto;
 	private Date dataValidade;
 	
-	public Lote(Produto produto, Date dataValidade) {
+	public Lote(int id, Produto produto, Date dataValidade) {
+		this.id = id;
 		this.produto = produto;
 		this.dataValidade = dataValidade;
+	}
+	
+	public int getId() {
+		return id;
 	}
 
 	public Produto getProduto() {
@@ -18,15 +26,12 @@ public class Lote {
 		return produto.getId();
 	}
 
-	public void setProduto(Produto produto) {
-		this.produto = produto;
-	}
-
 	public Date getDataValidade() {
 		return dataValidade;
 	}
 
-	public void setDataValidade(Date dataValidade) {
-		this.dataValidade = dataValidade;
+	@Override
+	public String toString() {
+		return "Lote: " + this.id + " produto: " + this.produto.getNome() + " dataValidade: " + this.dataValidade;
 	}	
 }
